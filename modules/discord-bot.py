@@ -15,15 +15,14 @@ GUILD = os.getenv('DISCORD_GUILD')
 #Initiate discord bot
 bot = commands.Bot(command_prefix="$")
 
-
 #Main Function
 async def schedule_daily_message():
   await bot.wait_until_ready()
-  channel = await bot.fetch_channel(957136983950508072)
+  channel = await bot.fetch_channel(GUILD)
   msg_sent = False
   print("start")
   while True:
-    if time.hour == 8 and time.minute == 0:
+    if time.hour == 18 and time.minute == 40:
       if not msg_sent:
         print('success')
         await channel.send("Good test")
