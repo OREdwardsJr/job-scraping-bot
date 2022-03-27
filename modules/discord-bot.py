@@ -20,11 +20,9 @@ async def schedule_daily_message():
   await bot.wait_until_ready()
   channel = await bot.fetch_channel(GUILD)
   msg_sent = False
-  print("start")
   while True:
-    if time.hour == 18 and time.minute == 40:
+    if time.hour == 8 and time.minute == 0:
       if not msg_sent:
-        print('success')
         await channel.send("Good test")
         msg_sent = True
     else:
