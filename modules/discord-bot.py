@@ -3,23 +3,27 @@ import os, asyncio, datetime, pytz
 from discord.ext import commands
 from pytz import timezone
 
-load_dotenv() #'---.env'
-
-
-TOKEN = os.getenv('DISCORD_TOKEN')
-GUILD = os.getenv('DISCORD_GUILD')
-
-bot = commands.Bot(command_prefix="$")
+#Set Timezone
 date = datetime.datetime.now()
 time = date.astimezone(timezone('US/Pacific'))
 
+#Secure personal key
+load_dotenv() 
+TOKEN = os.getenv('DISCORD_TOKEN')
+GUILD = os.getenv('DISCORD_GUILD')
+
+#Initiate discord bot
+bot = commands.Bot(command_prefix="$")
+
+
+#Main Function
 async def schedule_daily_message():
   await bot.wait_until_ready()
   channel = await bot.fetch_channel(957136983950508072)
   msg_sent = False
   print("start")
   while True:
-    if time.hour == 18 and time.minute == 17:
+    if time.hour == 8 and time.minute == 0:
       if not msg_sent:
         print('success')
         await channel.send("Good test")
