@@ -17,28 +17,31 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Discord][discord-shield]][discord-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
+
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
-<h3 align="center">project_title</h3>
+
+<h1 align="center">Discord Job Finder</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    Learning how to code is a rewarding, yet difficult task. Finding a job is even more difficult! This bot intends on making the job search easier for programmers so that they can focus more attention on building their skills and staying updated with the latest trends.
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
+    This project grabs 25 job postings from LinkedIn and sends them to our discord chat, where you can find a ton of helpful resources and community members that are all looking to uplift one another. The postings are all remote Software Engineering positions that are either listed as entry level or internships.
+    <br />
+    <br />
+    This bot alleviates some of the stresses and pressure of searching for jobs by taking care of that for you. I believe that coders should be able to spend more time coding and less time worrying about finding the right opportunity!
+    <br />
+    <a href="https://github.com/OREdwardsJr/job-scraping-bot><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
     <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
     ·
     <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
