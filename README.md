@@ -81,24 +81,28 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This project was birthed from a desire to contribute to the Computer Science/Tech community. One of the most important aspects of this community is its willingness to help and share. Therefore, I desire to do the same.
+                                  
+Within this project are two bots that have a loose connection with one another:
+                                  
+#### Linked-In Job Scraper [(linked-in-bot.py)](https://github.com/OREdwardsJr/job-scraping-bot/blob/main/modules/linked_in_bot.py)
+This bot scrapes LinkedIn for 25 Remote(USA) Entry-Level Software Engineer positions. It is packaged to be used immediately without any prior knowledge of webscraping, unless you'd like to change the search configurations. If you'd like to do so, but are unsure of how to adjust the bot, then please contact me. If enough interest is captured then I'll expand this ReadMe to include instructions on how to do so.                            
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `OREdwardsJr`, `job-scraping-bot`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+#### Discord Automated Poster [(discord-bot.py)](https://github.com/OREdwardsJr/job-scraping-bot/blob/main/modules/discord-bot.py)
+This bot posts to Discord at 8am PST everyday with jobs that are passed as an argument from the linked-in bot. It is configured to receive the job postings as an import from [linked-in-bot.py](https://github.com/OREdwardsJr/job-scraping-bot/blob/main/modules/linked_in_bot.py). The jobs are passed as a nested list, which are sent individually until all inner-lists are popped.
 
+                                  
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Python 3.10](https://docs.python.org/3/)
+* [Discord API](https://discordpy.readthedocs.io/en/stable/)
+* [Requests](https://docs.python-requests.org/en/latest/)
+* [Amazon EC2](https://docs.aws.amazon.com/ec2/index.html)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -107,32 +111,20 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+The LinkedIn bot is ready for execution as long as you have the appropriate dependencies - [imports.py](https://github.com/OREdwardsJr/job-scraping-bot/blob/main/modules/imports.py) has a list of necessary dependencies for the Python script. While some libraries come pre-installed with Python (EG: Requests), others may not. A few simple pip3 install commands will get the necessary dependencies added to your machine. If you are unfamiliar with how to install Python packages, then I'd recommend that you simply google how to do so. It's a simple process.
+                                
+Discord's API, however, requires that you register for unique keys. This is to prevent someone misusing your bot and having your permissions stripped. Take a quick peek at the [Discord Developer Portal](https://discord.com/developers/docs/intro) to grab your own set of keys. I have used environment variables to protect my keys from public viewing. You will need to replace assign your token to the TOKEN variable. You will also need to grab your desired [Discord Channel ID](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-) and insert it into the GUILD variable. However, once those variables are configured then you are ready to go 😄                                
 
-### Prerequisites
+### Automatic posting
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+If you would like to have this project run automatically then there are a few ways to do so. You will need to decide the best way to execute this for yourself. I ran into challenges in the two methods that I've tried. I will list my methods below:
+                                
+#### Cron (Functional but currently deprecated in favor of [launchd](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html)
+Using Cron, I can schedule my task to run in the background successfully. The problem with this method is that your server needs to be active at the scheduled time or the job will be skipped until the next scheduled time. I find it unreliable to depend on having my computer active at a certain time, everyday.
+                                
+#### EC2
+This was my preferred method until I ran into a block from LinkedIn. After launching my instance, LinkedIn gave me 999 responses to my request through the Ubuntu AMI. It appears that you can make successful requests from your computer but LinkedIn blocks requests to his site from EC2 Ubuntu servers. I will update this if I come across a workaround.                              
 
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/OREdwardsJr/job-scraping-bot.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -141,25 +133,12 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/OREdwardsJr/job-scraping-bot/issues) for a full list of proposed features (and known issues).
+If you are inexperienced with web-scraping then please make sure you are aware of [LinkedIn's Policy](https://www.linkedin.com/robots.txt) for bots. They are prohibited without express written-consent. **You should use the LinkedIn bot as a study tool until you have been provided written-consent**. 
+                                
+Discord is more friendly to bots. It's still important that you read their terms and conditions. However, generally speaking, you should be able to use discord-bot.py safely.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 
@@ -201,14 +180,6 @@ Project Link: [https://github.com/OREdwardsJr/job-scraping-bot](https://github.c
 
 
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
