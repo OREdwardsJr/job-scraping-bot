@@ -14,7 +14,7 @@ GUILD = os.getenv("DISCORD_GUILD")
 bot = commands.Bot(command_prefix="$")
 
 # Send messages to discord
-async def schedule_daily_message():
+async def schedule_daily_message() -> None:
     await bot.wait_until_ready()
     channel = await bot.fetch_channel(GUILD)
     msg_sent = False

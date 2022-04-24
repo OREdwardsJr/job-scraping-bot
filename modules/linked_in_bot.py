@@ -1,7 +1,7 @@
 from imports import requests, BeautifulSoup
 
 
-def parseJobs() -> list:
+def parseJobs() -> list[list]:
     # Parse html page
     search_url = "https://www.linkedin.com/jobs/search/?f_E=1%2C2&f_TPR=r86400&f_WT=2&geoId=103644278&keywords=software%20engineer&location=United%20States"
     r = requests.get(search_url)
